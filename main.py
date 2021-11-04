@@ -51,8 +51,16 @@ cv2.imwrite("img_morph.jpg", erosion)
 
 #6 пункт
 img_gaus = cv2.imread('img_morph.jpg',0)
-img_gaus=cv2.GaussianBlur(img_gaus,(5,5),cv2.BORDER_DEFAULT)
+img_gaus = cv2.GaussianBlur(img_gaus,(5,5),0)
 cv2.imwrite("img_gaus.jpg", img_gaus)
+
+img_gaus = cv2.imread('img_gaus.jpg',0)
+
+zeros_like1 = np.zeros_like(img_gaus)
+
+img_gaus  = cv2.normalize(img_gaus, zeros_like1, 1, 0, cv2.NORM_MINMAX)
+
+#cv2.imwrite("img_gaus_with_norma.jpg", img_gaus)
 #cv2.imshow('img', img_gaus)
 
 
